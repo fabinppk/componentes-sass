@@ -1,0 +1,108 @@
+@import "_variaveis.scss";
+
+[class*="form-"]{
+  -webkit-transition: box-shadow 0.3s ease;
+  -moz-transition: box-shadow 0.3s ease;
+  -ms-transition: box-shadow 0.3s ease;
+  -o-transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
+
+  &:disabled{
+    pointer-events: none;
+    background-color: $input-desabilitado-background;
+    border-color: $input-desabilitado-border;
+  }
+}
+
+.form-titulo{
+  font-size: 12px;
+  display: block;
+  color: $texto-cinza;
+  margin-bottom: 5px;
+}
+
+.form-input{
+  text-decoration: none;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border-radius: $border-radius-padrao;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $borda-cinza;
+  color: $texto-cinza;
+  font-size: 15px;
+  padding: 10px;
+  line-height: $line-height-padrao;
+  background-color: $branco;
+  width: 100%;
+
+  &.icone{
+    padding: 10px 40px 10px 10px;
+
+    +.input-icone{
+      position: absolute;
+      width: 22px;
+      top: 50%;
+      right: calc(15px + 10px);
+      cursor: pointer;
+
+      &.sem-label{
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  &.erro{
+    border-width: 1px;
+    border-color: $borda-vermelho;
+  }
+}
+
+.form-select{
+  text-decoration: none;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border-radius: $border-radius-padrao;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $borda-cinza;
+  color: $texto-cinza;
+  padding: 10px;
+  background-color: $branco;
+  background-image: url('https://d159gdcp8gotlc.cloudfront.net/assets/icones-svg/seta.svg');
+  background-repeat: no-repeat;
+  background-position: calc(100% - 10px) 50%;
+  background-size: 12px;
+  line-height: $line-height-padrao;
+  font-size: 15px;
+  width: 100%;
+  max-height: 41px;
+
+  &.icone{
+    padding: 10px 40px 10px 10px;
+
+    ~ .select-icone{
+      position: absolute;
+      width: 22px;
+      top: 50%;
+      right: calc(15px + 10px);
+      cursor: pointer;
+
+      &.sem-label{
+        transform: translateY(-50%);
+      }
+    }
+  }
+}
+
+.form-input:active,
+.form-input:hover,
+.form-input:focus,
+.form-select:active,
+.form-select:hover,
+.form-select:focus{
+  outline: none;
+  box-shadow: 0 0px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.01);
+}

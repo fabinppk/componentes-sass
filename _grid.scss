@@ -1,0 +1,251 @@
+@import "_variaveis.scss";
+
+/***** SHARED ****/
+
+.box{
+  position: relative;
+  border-radius: $border-radius-padrao;
+  background: $branco;
+  padding: 30px;
+  margin: 0;
+  // overflow-x: auto;
+  // overflow-y: hidden;
+
+  &.box-cinza{
+    background: $cinza-claro;
+  }
+
+  &.box-mini-padding{
+    padding: 5px;
+  }
+}
+
+.box + .box {
+  margin: 25px 0 0 0;
+}
+
+.borda {
+  border: 1px solid $cinza;
+}
+
+.titulo-pagina{
+  font-size: 22px;
+  color: $cinza-medio;
+  margin: 35px 0;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.titulo-secao{
+  font-size: 15px;
+  color: $cinza-escuro;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+/***** FIM SHARED ****/
+
+.grid{
+
+  .linha{
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    height: initial;
+
+    &.primeira-linha{
+      margin-top: 0;
+    }
+
+    &.ultima-linha{
+      margin-bottom: 0;
+    }
+  }
+
+  .col{
+    display: inline-block;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+
+    flex-direction: column;
+    justify-content: flex-end;
+
+    padding-right: 15px;
+    padding-left: 15px;
+
+    .align-self-end{
+      align-self: flex-end;
+    }
+
+    .align-self-start{
+      align-self: flex-start;
+    }
+
+    .align-self-center{
+      align-self: center;
+    }
+  }
+
+  .col-um {
+    flex: 0 0 8.333333%;
+    max-width: 8.333333%;
+  }
+
+  .col-dois {
+    flex: 0 0 16.666667%;
+    max-width: 16.666667%;
+  }
+
+  .col-tres {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+
+  .col-quatro {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+
+  .col-cinco {
+    flex: 0 0 41.666667%;
+    max-width: 41.666667%;
+  }
+
+  .col-seis {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .col-sete {
+    flex: 0 0 58.333333%;
+    max-width: 58.333333%;
+  }
+
+  .col-oito {
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+  }
+
+  .col-nove {
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+
+  .col-dez {
+    flex: 0 0 83.333333%;
+    max-width: 83.333333%;
+  }
+
+  .col-onze {
+    flex: 0 0 91.666667%;
+    max-width: 91.666667%;
+  }
+
+  .col-doze {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+}
+
+@media (max-width: 960px) {
+  .grid{
+
+    .col{
+      margin-top: 15px;
+    }
+
+    .col-um {
+      flex: 0 0 16.666667%;
+      max-width: 16.666667%;
+
+      &:nth-child(1n){
+        margin: 0;
+      }
+
+      &:nth-child(7n){
+        margin-top: 15px;
+      }
+    }
+    .col-dois {
+      flex: 0 0 33.333333%;
+      max-width: 33.333333%;
+
+      &:nth-child(1n){
+        margin: 0;
+      }
+
+      &:nth-child(4n){
+        margin-top: 15px;
+      }
+    }
+    .col-tres {
+      flex: 0 0 100%;
+      max-width: 100%;
+
+      &:nth-child(1){
+        margin: 0;
+      }
+
+      &:nth-child(3n){
+        margin-top: 15px;
+      }
+    }
+    .col-quatro {
+      flex: 0 0 100%;
+      max-width: 100%;
+
+      &:nth-child(1){
+        margin: 0;
+      }
+    }
+    .col-cinco {
+      flex: 0 0 100%;
+      max-width: 100%;
+
+      &:nth-child(1){
+        margin: 0;
+      }
+    }
+    .col-seis {
+      flex: 0 0 100%;
+      max-width: 100%;
+
+      &:nth-child(1){
+        margin: 0;
+      }
+    }
+    .col-sete {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+    .col-oito {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+    .col-nove {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+    .col-dez {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+    .col-onze {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+    .col-doze {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+}

@@ -1,0 +1,55 @@
+@import "_variaveis.scss";
+
+.nav{
+
+  &.nav-tabs{
+  	display: flex;
+    margin: 0;
+    padding: 0;
+
+    &.centered{
+      justify-content: space-around;
+
+      li{
+        flex: 1;
+
+        &:first-child{
+          margin-left: 0;
+        }
+      }
+    }
+
+    li{
+      padding: 15px 15px;
+      text-align: center;
+      border-bottom: 2px solid $cinza-claro;
+
+      &:first-child{
+        margin-left: 0;
+      }
+
+      a{
+        color: $cinza;
+      }
+
+      &.active{
+        border-bottom: 2px solid $laranja;
+
+        a{
+          color: $laranja;
+        }
+      }
+    }
+  }
+}
+
+.tab-content{
+
+  .tab-panel{
+    display: none;
+
+    &.active{
+      display: block;
+    }
+  }
+}

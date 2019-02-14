@@ -1,0 +1,57 @@
+@import "_variaveis.scss";
+
+.block-checkbox-padrao{
+	display: flex;
+	align-items: center;
+
+	&.centro{
+		justify-content: center;
+	}
+
+	&.desabilitado{
+		opacity: 0.5;
+	}
+
+	input[type=checkbox]{
+		opacity: 0;
+		margin-right: -37px;
+		cursor: pointer;
+
+		&+label::before{
+			content: " ";
+		  display: inline-block;
+		  margin-right: 5px;
+		  width: 20px;
+		  height: 20px;
+			border-radius: $border-radius-padrao;
+		  visibility: visible;
+		  border: 1px solid $borda-cinza;
+		}
+
+		&:checked{
+			&+label::before{
+				background: $laranja url("/assets/icones/checked_b.svg") no-repeat 50% 50%;
+			  background-size: 14px;
+				border: 1px solid $laranja;
+			}
+		}
+	}
+
+	.checkbox-padrao{
+	  width: 20px;
+	  height: 20px;
+	}
+
+	label{
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		margin-left: 13px;
+
+		div{
+			width: calc(100% - 45px);
+		  display: flex;
+		  flex-wrap: wrap;
+		}
+	}
+}

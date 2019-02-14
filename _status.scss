@@ -1,0 +1,49 @@
+@import "_variaveis.scss";
+
+.status {
+  width: 12px;
+  height: 12px;
+  background-color: $cinza;
+  border-radius: 50%;
+  display: inline-flex;
+  align-content: center;
+  margin: 0 1px 0 10px;
+
+  &+span {
+    display: inline-flex;
+    vertical-align: text-bottom;
+  }
+
+  &+label {
+    display: inline-flex;
+  }
+
+  &+select {
+    vertical-align: text-bottom;
+    width: initial;
+  }
+
+  &.status-verde, &.status-green {
+    background-color: $verde;
+  }
+
+  &.status-cinza, &.status-gray {
+    background-color: $cinza;
+  }
+
+  &.status-amarelo, &.status-yellow {
+    background-color: $amarelo;
+  }
+
+  &.status-laranja, &.status-orange {
+    background-color: $laranja;
+  }
+
+  &.status-laranja-escuro, &.status-orange-dark {
+    background-color: $laranja-escuro;
+  }
+
+  &.status-vermelho, &.status-red {
+    background-color: $vermelho;
+  }
+}

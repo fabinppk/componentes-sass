@@ -1,0 +1,75 @@
+@import "_variaveis.scss";
+
+.progresso-info {
+	transform: translateX(-50%) translateY(-65%);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 1;
+	color: $cinza;
+	text-align: center;
+
+	.valor {
+		display: inline;
+		flex-wrap: nowrap;
+		line-height: 1;
+		font-size: 14px;
+		text-transform: uppercase;
+		z-index: 1;
+	}
+
+	& span + span {
+		flex-wrap: nowrap;
+		white-space: nowrap;
+    text-overflow: ellipsis;
+	}
+}
+
+.circulo-progresso {
+	width: 100%;
+	height: initial;
+	position: relative;
+
+	svg {
+		-webkit-transform: rotate(-90deg);
+		transform: rotate(-90deg);
+		width: 100%;
+	}
+
+	.progresso_vazio {
+		stroke: $cinza-claro;
+		fill: none;
+	}
+
+	.progresso_valor {
+		fill: none;
+		stroke-linecap: round;
+		stroke-dasharray: 232.36;
+		stroke-dashoffset: 232.36;
+		-webkit-transition: stroke-dashoffset 0.8s ease;
+		-moz-transition: stroke-dashoffset 0.8s ease;
+		-ms-transition: stroke-dashoffset 0.8s ease;
+		-o-transition: stroke-dashoffset 0.8s ease;
+		transition: stroke-dashoffset 0.8s ease;
+
+		&.verde {
+			stroke: $verde;
+		}
+
+		&.amarelo {
+			stroke: $amarelo;
+		}
+
+		&.laranja {
+			stroke: $laranja;
+		}
+
+		&.vermelho {
+			stroke: $vermelho;
+		}
+
+		&.cinza {
+			stroke: $cinza-claro;
+		}
+	}
+}

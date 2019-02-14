@@ -1,0 +1,466 @@
+@import "_variaveis.scss";
+
+.loading-modal {
+  display: none;
+  position: fixed;
+  z-index: 16000;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: 50% 50% no-repeat rgba(0, 0, 0, 0.6);
+
+  .new-load {
+    z-index: 99999;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: calc(50%);
+    left: calc(50%);
+    transform: translate(-50%, -50%);
+  }
+}
+
+.wrapper-full {
+  display: flex;
+  position: relative;
+  min-height: 100vh;
+}
+
+.wrapper-side {
+  width: 50px;
+  background: $branco;
+  border-width: 0 1px 0 0;
+  border-style: solid;
+  border-color: $cinza-claro;
+  padding: 0;
+  position: fixed;
+  left: 0;
+  top: 50px;
+  height: 100%;
+  z-index: 10;
+  overflow: hidden;
+  -webkit-transition: width 0.2s;
+  -moz-transition: width 0.2s;
+  -ms-transition: width 0.2s;
+  -o-transition: width 0.2s;
+  transition: width 0.2s;
+}
+
+.wrapper-content {
+  background-color: $body-background;
+  width: calc(100% - 50px);
+  padding: 0 50px 30px;
+  margin-left: 50px;
+  margin-top: 50px;
+
+  .mascara-opacidade {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    z-index: 8;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    -webkit-transition: opacity 0.3s ease-in, width 0s linear 0.3s, height 0s linear 0.3s;
+    -moz-transition: opacity 0.3s ease-in, width 0s linear 0.3s, height 0s linear 0.3s;
+    -ms-transition: opacity 0.3s ease-in, width 0s linear 0.3s, height 0s linear 0.3s;
+    -o-transition: opacity 0.3s ease-in, width 0s linear 0.3s, height 0s linear 0.3s;
+    transition: opacity 0.3s ease-in, width 0s linear 0.3s, height 0s linear 0.3s;
+  }
+
+  .mascara-opacidade.active {
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: opacity 0.3s ease-in;
+    -moz-transition: opacity 0.3s ease-in;
+    -ms-transition: opacity 0.3s ease-in;
+    -o-transition: opacity 0.3s ease-in;
+    transition: opacity 0.3s ease-in;
+  }
+
+  header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .separador {
+      flex-grow: 1;
+    }
+
+    > * {
+      margin-right: 20px;
+    }
+
+    > *:last-child {
+      margin-right: 0;
+    }
+
+    + .grid {
+
+      > .linha {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+header.header {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid $borda-cinza;
+  background: $branco;
+  top: 0;
+  position: fixed;
+  z-index: 10;
+  height: 50px;
+  max-height: 50px;
+  padding-right: 50px;
+
+  .logo {
+    width: 100px;
+    max-height: 45px;
+    left: 70px;
+    position: absolute;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .menu {
+
+    .menu-toggle {
+      width: 30px;
+      height: 30px;
+      margin: 0 10px;
+      display: flex;
+      background: url("/assets/icones/icones_laranja/menu.svg") no-repeat;
+      border-width: 1px;
+      border-style: solid;
+      border-color: transparent;
+      cursor: pointer;
+    }
+  }
+
+  .separador {
+    flex-grow: 1;
+  }
+
+  .btn-header {
+    position: relative;
+    border-radius: 100%;
+    background: $branco;
+    width: 25px;
+    height: 25px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+
+    &.alerta {
+
+      .alerta {
+        display: block;
+      }
+    }
+
+    .icone {
+      width: 20px;
+      height: 20px;
+    }
+
+    .alerta {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: $laranja;
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: none;
+    }
+  }
+
+  [data-modal="true"] {
+    position: initial;
+  }
+
+  .usuario {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-left: 1px solid $borda-cinza;
+    padding-left: 15px;
+    margin-left: 0;
+    cursor: pointer;
+    position: relative;
+
+    .imagem-usuario {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+    }
+
+    .nome-usuario {
+      font-size: 12px;
+      margin: 0 10px;
+    }
+
+    .seta {
+      width: 10px;
+      height: 10px;
+    }
+  }
+}
+
+.menu-lateral {
+
+  .menu-atrativo {
+    position: relative;
+    margin: 15px 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    img {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+
+    .btn-atrativos {
+      width: 30px;
+      height: 22px;
+      background: url('/assets/icones/icones_laranja/reticencias.svg') no-repeat;
+      border: none;
+      cursor: pointer;
+      margin: 0 10px;
+      background-position: center center;
+    }
+
+    .btn-atrativos.active {
+      width: 18px;
+      height: 22px;
+      background: url('/assets/icones/fechar_l.svg') no-repeat;
+      background-position: center center;
+    }
+
+    .nome-atrativo {
+      width: 0;
+      height: 0;
+      margin: 0;
+      opacity: 0;
+      overflow: hidden;
+      -moz-transition: width 0.3s ease, opacity 0.3s ease 0.2s;
+      -ms-transition: width 0.3s ease, opacity 0.3s ease 0.2s;
+      -o-transition: width 0.3s ease, opacity 0.3s ease 0.2s;
+      transition: width 0.3s ease, opacity 0.3s ease 0.2s;
+
+      &.active {
+        height: 40px;
+        overflow: initial;
+        margin: 0 10px;
+        opacity: 1;
+        width: calc(100% - 70px);
+        -moz-transition: height 0s linear 0.3s, opacity 0.3s ease, width 0.3s ease;
+        -ms-transition: height 0s linear 0.3s, opacity 0.3s ease, width 0.3s ease;
+        -o-transition: height 0s linear 0.3s, opacity 0.3s ease, width 0.3s ease;
+        transition: height 0s linear 0.3s, opacity 0.3s ease, width 0.3s ease;
+      }
+    }
+
+    .seleciona-atrativo {
+      background: $branco;
+      height: 0;
+      width: 0;
+      -webkit-transition: height 0.2s ease;
+      -moz-transition: height 0.2s ease;
+      -ms-transition: height 0.2s ease;
+      -o-transition: height 0.2s ease;
+      transition: height 0.2s ease;
+    }
+
+    .seleciona-atrativo.active {
+      height: 300px;
+      width: 100%;
+      margin: 10px 0;
+      border-top: 1px solid $cinza-claro;
+    }
+  }
+
+  .menu {
+    margin: 0;
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+
+    .item {
+      padding: 10px;
+      font-size: 12px;
+      position: relative;
+
+      &.tem-sub-menu {
+
+        ul {
+          padding-left: 30px;
+          opacity: 0;
+          visibility: hidden;
+          width: 0;
+          height: 0;
+          margin: 0;
+          padding-top: 0;
+          overflow: hidden;
+          -moz-transition: padding-top 0.3s ease, opacity 0.3s ease, height 0.1s linear;
+          -ms-transition: padding-top 0.3s ease, opacity 0.3s ease, height 0.1s linear;
+          -o-transition: padding-top 0.3s ease, opacity 0.3s ease, height 0.1s linear;
+          transition: padding-top 0.3s ease, opacity 0.3s ease, height 0.1s linear;
+
+          .sub-menu {
+            padding: 5px;
+            white-space: nowrap;
+            text-overflow: clip;
+            overflow: hidden;
+
+            a {
+              color: $cinza-escuro;
+
+              &:hover {
+                color: $laranja;
+              }
+            }
+
+            &.tela-ativa {
+
+              a {
+                color: $laranja;
+              }
+            }
+          }
+        }
+      }
+
+      a {
+        display: flex;
+
+        svg, img {
+          width: 20px;
+          height: 20px;
+          margin-left: 2.5px;
+
+          &.svg-icon {
+
+            * {
+              fill: $cinza;
+              stroke: $cinza;
+            }
+          }
+        }
+
+        .texto,
+        option,
+        select {
+          opacity: 0;
+          visibility: hidden;
+          color: $cinza-escuro;
+          width: 0;
+          padding-left: 0;
+          white-space: nowrap;
+          text-overflow: clip;
+          overflow: hidden;
+          line-height: $line-height-padrao;
+          -webkit-transition: width 0.2s ease 0.1s, opacity 0.2s ease, visibility 0.2s ease, padding-left 0.2s ease;
+          -moz-transition: width 0.2s ease 0.1s, opacity 0.2s ease, visibility 0.2s ease, padding-left 0.2s ease;
+          -ms-transition: width 0.2s ease 0.1s, opacity 0.2s ease, visibility 0.2s ease, padding-left 0.2s ease;
+          -o-transition: width 0.2s ease 0.1s, opacity 0.2s ease, visibility 0.2s ease, padding-left 0.2s ease;
+          transition: width 0.2s ease 0.1s, opacity 0.2s ease, visibility 0.2s ease, padding-left 0.2s ease;
+        }
+      }
+
+      &:hover {
+
+        a {
+          .texto {
+            color: $laranja;
+          }
+
+          .svg-icon {
+            * {
+              fill: #ff8000 !important;
+              stroke: #ff8000 !important;
+            }
+          }
+        }
+      }
+    }
+
+    .item.active {
+      // border: 1px solid $laranja;
+      border-radius: $border-radius-padrao;
+      margin: 5px;
+      padding: 5px;
+
+      a {
+        .texto {
+          color: $laranja;
+          font-weight: bold;
+        }
+
+        .svg-icon {
+          * {
+            fill: $laranja !important;
+            stroke: $laranja !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.wrapper-side.fixed {
+  width: 250px;
+
+  .menu {
+
+    .item {
+
+      a {
+
+        .texto {
+          opacity: 1;
+          visibility: visible;
+          padding-left: 15px;
+          width: calc(100% - 38px);
+        }
+      }
+
+      &.active {
+
+        &.tem-sub-menu {
+
+          ul {
+            opacity: 1;
+            width: calc(100% - 30px);
+            height: initial;
+            visibility: visible;
+            padding-top: 10px;
+            overflow: initial;
+
+            -moz-transition: padding-top 0.3s ease, height 0.3s linear, width 0.3s ease, opacity 0.3s ease;
+            -ms-transition: padding-top 0.3s ease, height 0.3s linear, width 0.3s ease, opacity 0.3s ease;
+            -o-transition: padding-top 0.3s ease, height 0.3s linear, width 0.3s ease, opacity 0.3s ease;
+            transition: padding-top 0.3s ease, height 0.3s linear, width 0.3s ease, opacity 0.3s ease;
+          }
+        }
+      }
+    }
+  }
+}

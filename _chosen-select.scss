@@ -1,0 +1,82 @@
+@import "_variaveis.scss";
+
+.chosen-container-single .chosen-single{
+  border: 1px solid $cinza-claro;
+  box-shadow: none;
+  background: $branco;
+  border-radius: $border-radius-padrao;
+  height: initial;
+  padding: 10px;
+  line-height: $line-height-padrao;
+}
+
+.chosen-container .chosen-drop{
+  border: 1px solid $cinza-claro;
+}
+
+.chosen-container-single .chosen-single span{
+  font-size: initial;
+}
+
+.chosen-container-single .chosen-single div b{
+  height: 25px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.chosen-container-single .chosen-search input[type=text]{
+  border: 1px solid $cinza-claro;
+  color: $cinza-medio;
+}
+
+.chosen-container-active.chosen-with-drop .chosen-single{
+  border: 1px solid $cinza-claro;
+  box-shadow: none;
+  background: $branco;
+  border-radius: $border-radius-padrao;
+}
+
+.chosen-container-active .chosen-single{
+  border: 1px solid $cinza-claro;
+  box-shadow: none;
+  border-radius: $border-radius-padrao;
+  background: $branco;
+}
+
+.chosen-container-multi .chosen-choices{
+  border: 1px solid $cinza-claro;
+  box-shadow: none;
+  border-radius: $border-radius-padrao;
+  background: $branco;
+  padding: 6px;
+  max-height: 41px;
+  overflow-y: auto;
+}
+
+.chosen-container-multi .chosen-choices li.search-choice{
+  background: $branco;
+  border: 1px solid $laranja;
+  cursor: default;
+  color: $cinza-medio;
+}
+
+.chosen-container-active .chosen-choices{
+  border: 1px solid $cinza-claro;
+  box-shadow: none;
+  border-radius: $border-radius-padrao;
+  background: $branco;
+}
+
+.chosen-container .chosen-results{
+  color: initial;
+}
+
+.chosen-container .chosen-results li.active-result{
+  color: $cinza-medio;
+}
+
+.chosen-container .chosen-results li.highlighted{
+  background: $laranja;
+  color: $branco;
+}

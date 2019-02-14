@@ -1,0 +1,60 @@
+@import "_variaveis.scss";
+
+.switch{
+  width: 50%; /* Fallback */
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
+  width: fit-content;
+
+
+  * {
+    cursor: pointer;
+  }
+
+  input {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+
+    &:checked{
+
+      &+span {
+        background-color: $laranja;
+        border-color: $laranja;
+        transition: all 0.5s ease;
+
+        &:after {
+          left: 50%;
+          transition: all 0.2s;
+          border: 1px solid $laranja;
+        }
+      }
+    }
+  }
+
+  span {
+    position: relative;
+    display: inline-block;
+    width: 58px;
+    height: 30px;
+    background-color: $cinza;
+    border: 1px solid $cinza;
+    border-radius: 100px;
+    transition: all .5s;
+    // box-shadow: 1px 2px 3px rgba(0,0,0,0.1) inset;
+
+    &:after {
+     content: "";
+     position: absolute;
+     background-color: $branco;
+     top: 0;
+     left: 0;
+     height: 28px;
+     width: 28px;
+     border: 1px solid $cinza;
+     border-radius: 400px;
+    //  box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+     -webkit-transition: all .2s;
+    }
+  }
+}
